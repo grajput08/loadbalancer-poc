@@ -1,0 +1,34 @@
+service: loadbalancer-poc
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+plugins:
+  - serverless-localstack
+
+custom:
+  localstack:
+    stages:
+      - local
+
+functions:
+  dispatcher:
+    handler: dispatcher.handler
+    events:
+      - http:
+          path: request
+          method: get
+          throttling:
+            maxRequestsPerSecond: 2
+            maxConcurrentRequests: 1
+
+  worker1:
+    handler: worker1.handler
+
+  worker2:
+    handler: worker2.handler
+
+  worker3:
+    handler: worker3.handler

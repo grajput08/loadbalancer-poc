@@ -1,0 +1,25 @@
+{
+  "name": "loadbalancer-poc",
+  "version": "1.0.0",
+  "description": "Serverless Load Balancer with Rate Limiting using API Gateway + Lambda (LocalStack)",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "serverless deploy --stage local",
+    "remove": "serverless remove --stage local"
+  },
+  "keywords": [
+    "loadbalancer",
+    "rate-limiting",
+    "localstack",
+    "serverless"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1691.0"
+  },
+  "devDependencies": {
+    "serverless": "^3.38.0",
+    "serverless-localstack": "^1.0.1"
+  }
+}
